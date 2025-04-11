@@ -7,7 +7,7 @@ import io
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to bottom, #ffffff, #ff0000);
+        background: linear-gradient(to bottom, #ffffff, #ffffff);
         background-attachment: fixed;
     }
     .block-container {
@@ -20,7 +20,7 @@ st.markdown("""
 # Logo centrato
 st.markdown("""
     <div style='text-align: center;'>
-        <img src='data:image/png;base64,""" + base64.b64encode(open("TSLAC.png", "rb").read()).decode() + """' style='width: 200px; margin-bottom: 10px;'>
+        <img src='data:image/png;base64,""" + base64.b64encode(open("TSLAC.png", "rb").read()).decode() + """' style='width: 400px; margin-bottom: 10px;'>
     </div>
 """, unsafe_allow_html=True)
 
@@ -34,7 +34,7 @@ val3 = st.number_input("Central Clearance", value=250, step=5)
 
 # Calcolo
 risultato = (val1 + val2) / 2 + 1080 + val3
-st.markdown(f"### Risultato formula: {risultato:.2f}")
+st.markdown(f"### SAG Lente: {int(risultato)} µm")
 
 # Determina quale immagine evidenziare
 indice = None
@@ -59,7 +59,7 @@ paths = [
 ]
 
 # Etichette personalizzate sotto ogni lente
-sag_labels = ["SAG 3000", "SAG 3150", "SAG 3250", "SAG 3350", "SAG 3450", "SAG 3600", "SAG 3850"]
+sag_labels = ["SAG 3000µm", "SAG 3150µm", "SAG 3250µm", "SAG 3350µm", "SAG 3450µm", "SAG 3600µm", "SAG 3850µm"]
 
 # Funzione per convertire immagine in base64
 def pil_to_base64(img):
