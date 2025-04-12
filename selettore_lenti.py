@@ -7,7 +7,7 @@ import io
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to bottom, #ffffff, #fffff9);
+        background: linear-gradient(to bottom, #ffffff, #ffffff);
         background-attachment: fixed;
     }
     .block-container {
@@ -36,32 +36,48 @@ val3 = st.number_input("Central Clearance", value=250, step=5)
 risultato = (val1 + val2) / 2 + 1080 + val3
 st.markdown(f"### SAG Lente: {int(risultato)} µm")
 
-# Determina quale immagine evidenziare
-indice = None
+# Determina quali immagini evidenziare
+indici = []
+
+# Prima fila (0–6)
 if 3600 <= risultato <= 3850:
-    indice = 0
-elif 3851 <= risultato <= 4050:
-    indice = 1
-elif 4051 <= risultato <= 4250:
-    indice = 2
-elif 4251 <= risultato <= 4450:
-    indice = 3
-elif 4451 <= risultato <= 4650:
-    indice = 4
-elif 4651 <= risultato <= 4850:
-    indice = 5
-elif 4851 <= risultato <= 5050:
-    indice = 6
+    indici.append(0)
+if 3851 <= risultato <= 4050:
+    indici.append(1)
+if 4051 <= risultato <= 4250:
+    indici.append(2)
+if 4251 <= risultato <= 4450:
+    indici.append(3)
+if 4451 <= risultato <= 4650:
+    indici.append(4)
+if 4651 <= risultato <= 4850:
+    indici.append(5)
+if 4851 <= risultato <= 5050:
+    indici.append(6)
+
+# Seconda fila (7–13)
+if 3200 <= risultato <= 3450:
+    indici.append(7)
+if 3451 <= risultato <= 3650:
+    indici.append(8)
+if 3651 <= risultato <= 3850:
+    indici.append(9)
+if 3900 <= risultato <= 4150:
+    indici.append(10)
+if 4151 <= risultato <= 4350:
+    indici.append(11)
+if 4351 <= risultato <= 4550:
+    indici.append(12)
+if 4551 <= risultato <= 4750:
+    indici.append(13)
 
 # Percorsi immagini
 paths = [
     "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"
 ]
-
-# Etichette personalizzate sotto ogni lente
 sag_labels = ["SAG 3800µm", "SAG 4000µm", "SAG 4200µm", "SAG 4400µm", "SAG 4600µm", "SAG 4800µm", "SAG 5000µm"]
 
-paths_2 = [ "8.png", "9.png", "10.png", "11.png", "12.png", "13.png", "14.png" ]
+paths_2 = ["8.png", "9.png", "10.png", "11.png", "12.png", "13.png", "14.png"]
 sag_labels_2 = ["SAG 3400µm", "SAG 3600µm", "SAG 3800µm", "SAG 4100µm", "SAG 4300µm", "SAG 4500µm", "SAG 4700µm"]
 
 # Funzione per convertire immagine in base64
@@ -74,27 +90,26 @@ def pil_to_base64(img):
 # CSS + HTML layout
 st.markdown("""
     <style>
-.cassette {
-    background-color: #f8f9fa;
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin: 30px auto;
-    border: 2px solid #ccc;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-}
-.cassette-row {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
+    .cassette {
+        background-color: #f8f9fa;
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin: 30px auto;
+        border: 2px solid #ccc;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+    .cassette-row {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+    }
     .lens {
         text-align: center;
         margin: 0 5px;
@@ -121,9 +136,10 @@ cassette_html = "<div class='cassette'>"
 cassette_html += "<div class='cassette-row'>"
 for i in range(7):
     img = Image.open(paths[i])
-    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 190px; border-radius: 10px;' class='{'selected' if i == indice else ''}'>"
-    arrow_html = "<div class='arrow'>⬇️</div>" if i == indice else ""
-    label = f"{sag_labels[i]}{' (Lente ideale)' if i == indice else ''}"
+    is_selected = i in indici
+    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 190px; border-radius: 10px;' class='{'selected' if is_selected else ''}'>"
+    arrow_html = "<div class='arrow'>⬇️</div>" if is_selected else ""
+    label = f"{sag_labels[i]}{' (Lente ideale)' if is_selected else ''}"
     lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>{label}</div></div>"
     cassette_html += lens_html
 cassette_html += "</div>"
@@ -131,10 +147,13 @@ cassette_html += "</div>"
 # Seconda riga
 cassette_html += "<div class='cassette-row'>"
 for i in range(7):
+    index = i + 7
     img = Image.open(paths_2[i])
-    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 190px; border-radius: 10px;'>"
-    label = f"{sag_labels_2[i]}"
-    lens_html = f"<div class='lens'>{img_html}<div>{label}</div></div>"
+    is_selected = index in indici
+    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 190px; border-radius: 10px;' class='{'selected' if is_selected else ''}'>"
+    arrow_html = "<div class='arrow'>⬇️</div>" if is_selected else ""
+    label = f"{sag_labels_2[i]}{' (Lente ideale)' if is_selected else ''}"
+    lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>{label}</div></div>"
     cassette_html += lens_html
 cassette_html += "</div>"
 
@@ -168,4 +187,3 @@ st.markdown(f"""
         <img src='data:image/png;base64,{encoded_c}' style='width: 700px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
     </div>
 """, unsafe_allow_html=True)
-
