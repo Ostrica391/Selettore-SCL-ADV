@@ -213,12 +213,12 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # Carica immagine finale
-with open("totalsagc.png", "rb") as img_file_c:
-    encoded_c = base64.b64encode(img_file_c.read()).decode()
+#with open("totalsagc.png", "rb") as img_file_c:
+#    encoded_c = base64.b64encode(img_file_c.read()).decode()
 
 # Mostra immagine finale centrata
-st.markdown(f"""
-    <div style='margin-top: 40px; text-align: center;'>
-        <img src='data:image/png;base64,{encoded_c}' style='width: 700px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
-    </div>
-""", unsafe_allow_html=True)
+#st.markdown(f"""
+#    <div style='margin-top: 40px; text-align: center;'>
+ #       <img src='data:image/png;base64,{encoded_c}' style='width: 700px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
+  #  </div>
+#""", unsafe_allow_html=True)
