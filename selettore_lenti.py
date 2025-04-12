@@ -79,7 +79,7 @@ paths = [
 sag_labels = ["SAG 3800µm", "SAG 4000µm", "SAG 4200µm", "SAG 4400µm", "SAG 4600µm", "SAG 4800µm", "SAG 5000µm"]
 
 paths_2 = ["8.png", "9.png", "10.png", "11.png", "12.png", "13.png", "14.png"]
-sag_labels_2 = ["SAG 3400µm", "SAG 3600µm", "SAG 3800µm", "SAG 4100µm", "SAG 4300µm", "SAG 4500µm", "SAG 4700µm"]
+sag_labels_2 = ["SAG 3400µm", "SAG 3600µm", "SAG 3800µm", "SAG 4100µm", "Toric SAG 4300µm", "Toric SAG 4500µm", "Toric SAG 4700µm"]
 
 # Funzione per convertire immagine in base64
 def pil_to_base64(img):
