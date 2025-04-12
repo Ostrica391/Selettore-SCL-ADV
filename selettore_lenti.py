@@ -38,19 +38,19 @@ st.markdown(f"### SAG Lente: {int(risultato)} µm")
 
 # Determina quale immagine evidenziare
 indice = None
-if 2080 <= risultato <= 3050:
+if 3600 <= risultato <= 3850:
     indice = 0
-elif 3051 <= risultato <= 3200:
+elif 3851 <= risultato <= 4050:
     indice = 1
-elif 3201 <= risultato <= 3300:
+elif 4051 <= risultato <= 4250:
     indice = 2
-elif 3301 <= risultato <= 3400:
+elif 4251 <= risultato <= 4450:
     indice = 3
-elif 3401 <= risultato <= 3500:
+elif 4451 <= risultato <= 4650:
     indice = 4
-elif 3501 <= risultato <= 3650:
+elif 4651 <= risultato <= 4850:
     indice = 5
-elif 3651 <= risultato <= 3900:
+elif 4851 <= risultato <= 5050:
     indice = 6
 
 # Percorsi immagini
@@ -59,7 +59,7 @@ paths = [
 ]
 
 # Etichette personalizzate sotto ogni lente
-sag_labels = ["SAG 3000µm", "SAG 3150µm", "SAG 3250µm", "SAG 3350µm", "SAG 3450µm", "SAG 3600µm", "SAG 3850µm"]
+sag_labels = ["SAG 3800µm", "SAG 4000µm", "SAG 4200µm", "SAG 4400µm", "SAG 4600µm", "SAG 4800µm", "SAG 5000µm"]
 
 # Funzione per convertire immagine in base64
 def pil_to_base64(img):
