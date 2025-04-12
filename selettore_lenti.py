@@ -46,8 +46,8 @@ st.markdown("""
     <div class="top-menu">
         <a href="https://selettore-cs.streamlit.app/" target="_blank">Calcolatore CS</a>
         <a href="https://selettore-scl-adv.streamlit.app/" target="_blank">Calcolatore SCL-ADV</a>
-        <a href="https://link3.com" target="_blank">Pulsante 3</a>
-        <a href="https://link4.com" target="_blank">Pulsante 4</a>
+        <a href="https://link3.com" target="_blank">Work in progress</a>
+        <a href="https://link4.com" target="_blank">Work in progress</a>
     </div>
 """, unsafe_allow_html=True)
 
