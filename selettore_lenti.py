@@ -34,6 +34,7 @@ val3 = st.number_input("Central Clearance", value=250, step=5)
 
 # Calcolo
 risultato = (val1 + val2) / 2 + 2000 + val3
+risultato2 = (val1 + val2) / 2 + 1200 + val3
 st.markdown(f"### SAG Lente: {int(risultato)} µm")
 
 # Determina quali immagini evidenziare
@@ -56,11 +57,11 @@ if 4851 <= risultato <= 5050:
     indici.append(6)
 
 # Seconda fila (7–13)
-if 3200 <= risultato <= 3450:
+if 3200 <= risultato2 <= 3450:
     indici.append(7)
-if 3451 <= risultato <= 3650:
+if 3451 <= risultato2 <= 3650:
     indici.append(8)
-if 3651 <= risultato <= 3850:
+if 3651 <= risultato2 <= 3850:
     indici.append(9)
 if 3900 <= risultato <= 4150:
     indici.append(10)
