@@ -51,8 +51,8 @@ st.markdown("""
     }
     </style>
     <div class="top-menu">
-        <a href="https://link1.com" target="_blank">Pulsante 1</a>
-        <a href="https://link2.com" target="_blank">Pulsante 2</a>
+        <a href="https://selettore-cs.streamlit.app/" target="_blank">Calcolatore CS</a>
+        <a href="https://selettore-scl-adv.streamlit.app/" target="_blank">Calcolatore SCL-ADV</a>
         <a href="https://link3.com" target="_blank">Pulsante 3</a>
         <a href="https://link4.com" target="_blank">Pulsante 4</a>
     </div>
