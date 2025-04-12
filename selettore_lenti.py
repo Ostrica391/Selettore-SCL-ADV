@@ -28,10 +28,10 @@ st.markdown("""
 st.markdown("""
     <style>
     .top-menu {
-        position: fixed;
+        position: absolute;
         top: 60px;
         left: 20px;
-        z-index: 9999;
+        z-index: 1;
     }
     .top-menu a {
         display: block;
