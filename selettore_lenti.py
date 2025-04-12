@@ -61,6 +61,9 @@ paths = [
 # Etichette personalizzate sotto ogni lente
 sag_labels = ["SAG 3800µm", "SAG 4000µm", "SAG 4200µm", "SAG 4400µm", "SAG 4600µm", "SAG 4800µm", "SAG 5000µm"]
 
+paths_2 = [ "8.png", "9.png", "10.png", "11.png", "12.png", "13.png", "14.png" ]
+sag_labels_2 = ["SAG 5200µm", "SAG 5400µm", "SAG 5600µm", "SAG 5800µm", "SAG 6000µm", "SAG 6200µm", "SAG 6400µm"]
+
 # Funzione per convertire immagine in base64
 def pil_to_base64(img):
     buffer = io.BytesIO()
@@ -71,22 +74,27 @@ def pil_to_base64(img):
 # CSS + HTML layout
 st.markdown("""
     <style>
-    .cassette {
-        background-color: #f8f9fa;
-        border-radius: 20px;
-        padding: 30px;
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        flex-wrap: nowrap;
-        align-items: flex-end;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        margin: 30px auto;
-        border: 2px solid #ccc;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: auto;
-    }
+.cassette {
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    border: 2px solid #ccc;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+.cassette-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
     .lens {
         text-align: center;
         margin: 0 5px;
@@ -107,9 +115,10 @@ st.markdown("""
 # Titolo cassetta
 st.markdown("## Lenti di prova SCL-Advance")
 
-# Costruiamo tutto l'HTML in un unico blocco
 cassette_html = "<div class='cassette'>"
 
+# Prima riga
+cassette_html += "<div class='cassette-row'>"
 for i in range(7):
     img = Image.open(paths[i])
     img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 190px; border-radius: 10px;' class='{'selected' if i == indice else ''}'>"
@@ -117,6 +126,17 @@ for i in range(7):
     label = f"{sag_labels[i]}{' (Lente ideale)' if i == indice else ''}"
     lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>{label}</div></div>"
     cassette_html += lens_html
+cassette_html += "</div>"
+
+# Seconda riga
+cassette_html += "<div class='cassette-row'>"
+for i in range(7):
+    img = Image.open(paths_2[i])
+    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 190px; border-radius: 10px;'>"
+    label = f"{sag_labels_2[i]}"
+    lens_html = f"<div class='lens'>{img_html}<div>{label}</div></div>"
+    cassette_html += lens_html
+cassette_html += "</div>"
 
 cassette_html += "</div>"
 
