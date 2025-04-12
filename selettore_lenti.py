@@ -105,7 +105,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Titolo cassetta
-st.markdown("## Lenti di prova CS")
+st.markdown("## Lenti di prova SCL-Advance")
 
 # Costruiamo tutto l'HTML in un unico blocco
 cassette_html = "<div class='cassette'>"
