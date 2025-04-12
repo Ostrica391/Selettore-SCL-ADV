@@ -24,6 +24,41 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
+# Menu link in alto a sinistra
+st.markdown("""
+    <style>
+    .top-menu {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+    }
+    .top-menu a {
+        display: block;
+        background-color: #004890;
+        color: white;
+        padding: 8px 16px;
+        margin-bottom: 8px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 14px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: background 0.3s;
+    }
+    .top-menu a:hover {
+        background-color: #0060b0;
+    }
+    </style>
+    <div class="top-menu">
+        <a href="https://link1.com" target="_blank">Pulsante 1</a>
+        <a href="https://link2.com" target="_blank">Pulsante 2</a>
+        <a href="https://link3.com" target="_blank">Pulsante 3</a>
+        <a href="https://link4.com" target="_blank">Pulsante 4</a>
+    </div>
+""", unsafe_allow_html=True)
+
+
 # Titolo
 st.title("Selettore SCL ADV - TS LAC")
 
