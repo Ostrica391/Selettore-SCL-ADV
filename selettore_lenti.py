@@ -201,7 +201,7 @@ st.markdown(cassette_html, unsafe_allow_html=True)
 with open("scladv1.png", "rb") as img_file_a:
     encoded_a = base64.b64encode(img_file_a.read()).decode()
 
-with open("totalsagb.png", "rb") as img_file_b:
+with open("scladv2.png", "rb") as img_file_b:
     encoded_b = base64.b64encode(img_file_b.read()).decode()
 
 # Mostra affiancate le due immagini
