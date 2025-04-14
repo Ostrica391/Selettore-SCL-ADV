@@ -108,7 +108,7 @@ if 4551 <= risultato <= 4750:
 
 # Percorsi immagini
 paths = [
-    "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"
+    "scl1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"
 ]
 sag_labels = ["SAG 3800µm", "SAG 4000µm", "SAG 4200µm", "SAG 4400µm", "SAG 4600µm", "SAG 4800µm", "SAG 5000µm"]
 
