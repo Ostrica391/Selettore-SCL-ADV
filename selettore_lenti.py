@@ -108,11 +108,11 @@ if 4551 <= risultato <= 4750:
 
 # Percorsi immagini
 paths = [
-    "scl1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"
+    "scl1.png", "scl2.png", "scl3.png", "scl4.png", "scl5.png", "scl6.png", "scl7.png"
 ]
 sag_labels = ["SAG 3800µm", "SAG 4000µm", "SAG 4200µm", "SAG 4400µm", "SAG 4600µm", "SAG 4800µm", "SAG 5000µm"]
 
-paths_2 = ["8.png", "9.png", "10.png", "11.png", "12.png", "13.png", "14.png"]
+paths_2 = ["scl8.png", "scl9.png", "scl10.png", "scl11.png", "scl12.png", "scl13.png", "scl14.png"]
 sag_labels_2 = ["SAG 3400µm", "SAG 3600µm", "SAG 3800µm", "SAG 4100µm", "Toric SAG 4300µm", "Toric SAG 4500µm", "Toric SAG 4700µm"]
 
 # Funzione per convertire immagine in base64
