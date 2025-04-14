@@ -44,8 +44,8 @@ st.markdown("""
     }
     </style>
     <div class="top-menu">
-        <a href="https://selettore-cs.streamlit.app/" target="_blank">Calcolatore CS</a>
-        <a href="https://selettore-scl-adv.streamlit.app/" target="_blank">Calcolatore SCL-ADV</a>
+        <a href="https://selettore-cs.streamlit.app/">Calcolatore CS</a>
+        <a href="https://selettore-scl-adv.streamlit.app/">Calcolatore SCL-ADV</a>
         <a href="https://www.tslac.it/">Work in progress</a>
         <a href="https://www.tslac.it/">Work in progress</a>
     </div>
