@@ -222,3 +222,9 @@ st.markdown(f"""
  #       <img src='data:image/png;base64,{encoded_c}' style='width: 700px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
   #  </div>
 #""", unsafe_allow_html=True)
+
+st.markdown("""
+    <div style='position: relative; bottom: 0; width: 100%; text-align: center; font-size: 10px; color: gray; margin-top: 50px;'>
+        TSLAC stc-030 rev. 01-25
+    </div>
+""", unsafe_allow_html=True)
